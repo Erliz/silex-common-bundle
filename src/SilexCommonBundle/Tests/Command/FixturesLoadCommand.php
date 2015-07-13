@@ -5,13 +5,13 @@
  * @date 21.11.2014
  */
 
-namespace Erliz\Common\Tests\Command;
+namespace Erliz\SilexCommonBundle\Tests\Command;
 
 
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Loader;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
-use Erliz\Common\Command\ApplicationAwareCommand;
+use Erliz\SilexCommonBundle\Command\ApplicationAwareCommand;
 use InvalidArgumentException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

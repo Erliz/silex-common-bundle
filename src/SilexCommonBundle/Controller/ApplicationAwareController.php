@@ -4,7 +4,7 @@
  * @date   21.11.2014
  */
 
-namespace Erliz\Common\Controller;
+namespace Erliz\SilexCommonBundle\Controller;
 
 
 use Doctrine\ORM\EntityManager;

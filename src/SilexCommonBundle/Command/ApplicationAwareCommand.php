@@ -5,7 +5,7 @@
  * @date 21.11.2014
  */
 
-namespace Erliz\Common\Command;
+namespace Erliz\SilexCommonBundle\Command;
 
 
 use Monolog\Logger;

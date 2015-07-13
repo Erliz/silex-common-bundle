@@ -4,7 +4,7 @@
  * @date   21.11.2014
  */
 
-namespace Erliz\Common\Extension\Twig;
+namespace Erliz\SilexCommonBundle\Extension\Twig;
 
 
 use Silex\Application;

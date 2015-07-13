@@ -8,10 +8,7 @@
 namespace Erliz\SilexCommonBundle;
 
 
-use Doctrine\ORM\EntityManager;
-use Erliz\Common\Extension\Twig\AssetsExtension;
-use Erliz\Skyforge\Service\MembersService;
-use Erliz\Skyforge\Service\ParseService;
+use Erliz\SilexCommonBundle\Extension\Twig\AssetsExtension;
 use Pimple;
 use Silex\Application;
 use Silex\ControllerCollection;
@@ -50,9 +47,7 @@ class Bootstrap implements ControllerProviderInterface
      */
     private function setControllers(Application $app)
     {
-        $app[$this->prefix . '_common_main.controller'] = $app->share(function() use($app) {
-            return new \Erliz\Common\Controller\MainController($app);
-        });
+
     }
 
     /**
@@ -64,11 +59,6 @@ class Bootstrap implements ControllerProviderInterface
     {
         $controllersFactory = $app['controllers_factory'];
 
-        $controllersFactory->get('/', $this->prefix . '_common_main.controller:indexAction')
-                           ->bind('erliz_common_main');
-
-
-
         return  $controllersFactory;
     }
 
@@ -79,24 +69,6 @@ class Bootstrap implements ControllerProviderInterface
     {
         $app->before(function (Request $request, Application $app) {
 
-            /** @var EntityManager $em */
-//            $em = $app['orm.em'];
-//            $settings = array();
-            /** @var Setting $setting */
-//            foreach ($em->getRepository('Erliz\PhotoSite\Entity\Setting')->findAll() as $setting) {
-//                $settings[$setting->getName()] = $setting->getValue();
-//            }
-            $settings = array(
-                'title' => 'Erliz',
-                'description' => 'Erliz',
-                'keywords' => 'Erliz',
-            );
-            $app['twig'] = $app->share($app->extend('twig', function($twig, $app) use ($settings) {
-                $twig->addGlobal('general', $settings);
-
-                return $twig;
-            }));
-
         }, Application::EARLY_EVENT);
     }
 
@@ -106,8 +78,8 @@ class Bootstrap implements ControllerProviderInterface
     private function addExtensions(Application $app)
     {
         $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+            /** @var $twig \Twig_Environment */
             $twig->addExtension(new AssetsExtension($app));
-//            $twig->addExtension(new Twig_Extensions_Extension_Text());
 
             return $twig;
         }));
@@ -118,8 +90,6 @@ class Bootstrap implements ControllerProviderInterface
      */
     private function addServices(Application $app)
     {
-//        $app['security.service'] = $app->share(function () use ($app) {
-//            return new SecurityService($app);
-//        });
+
     }
 }
