@@ -1,0 +1,24 @@
+{% extends "layout.twig" %}
+
+{% block body %}
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			font-family: 'Helvetic Neue', Helvetica, Arial;
+			height: 100%;
+			margin: 0;
+			background: url('/web/static/img/background-forest.jpg') 50% no-repeat #000;
+			background-size: cover;
+		}
+		.phrase__text {
+			position: absolute;
+			display: block;
+			right: 30px;
+			bottom: 15px;
+			color: #236063;
+		}
+	</style>
+	<span class="phrase__text">The quieter you become, the more you are able to hear<span>
+{% endblock %}

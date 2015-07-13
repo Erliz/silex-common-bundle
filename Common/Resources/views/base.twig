@@ -1,0 +1,68 @@
+{% set staticVersion = '?v=1' %}
+<!doctype html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" >
+<head>
+    {% block head %}
+        {% block meta %}
+            <meta charset="{% block charset %}UTF-8{% endblock %}" />
+        {% endblock %}
+        {% block favicon %}
+            <link rel="shortcut icon" href="/favicon.ico">
+            <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+            <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57-precomposed.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
+        {% endblock %}
+        <title>{% block title %}{{ general.title }}{% endblock %}</title>
+        {% block description %}
+            <meta name="description" content="{{ general.description }}">
+        {% endblock %}
+        {% block keywords %}
+            <meta name="keywords" content="{{ general.keywords }}">
+        {% endblock %}
+        {#<link type="text/plain" rel="author" href="/humans.txt" />#}
+        <meta name="viewport" content="width=device-width">
+        <meta property="og:title" content="{{ general.title }}" />
+        <meta property="og:description" content="{{ general.description }}" />
+        <meta property="og:image" content="" />
+        {% block ogImage %}{% endblock %}
+        <link rel="favicon" href="/favicon.ico">
+        {%- block stylesheets_all -%}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        {%- endblock -%}
+        <!--[if (gt IE 8)|!(IE)]><!-->
+        {%- block stylesheets -%}{%- endblock -%}
+        <!--<![endif]-->
+        <!--[if lte IE 8]>
+        {%- block stylesheets_lte_8 -%}{%- endblock -%}
+        <![endif]-->
+        {%- block stylesheets_gt_8 -%}{%- endblock -%}
+        <!--[if lt IE 9]>
+        {%- block javascripts_top_lt_9 -%}{%- endblock -%}
+        <![endif]-->
+        {%- block javascripts_top -%}
+            {#<script src="{{ asset('js/vendor/modernizr-2.6.2.min.js', false) }}"></script>#}
+        {%- endblock -%}
+    {% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+<!--[if lt IE 7]>
+<p class="chromeframe">Вы используете <strong>устаревший</strong> браузер. Пожалуста <a href="http://browsehappy.com/">обновите
+    ваш браузер</a> или <a href="http://www.google.ru/chromeframe/?redirect=true">включите Google Chrome Frame</a>
+    для удобного серфинга по интернету.</p>
+<![endif]-->
+{% block body %}
+    Hello world!
+{% endblock %}
+{% block javascripts_bottom %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block counters %}
+    {% include 'counter/google.twig' with {account: ''} only %}
+    {#{% include 'counter/yandex.twig' with {account: ''} only %}#}
+    {#{% include 'counter/mail.twig' with {account: ''} only %}#}
+{% endblock %}
+</body>
+</html>

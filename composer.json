@@ -1,0 +1,21 @@
+{
+  "name": "erliz/silex-common-bundle",
+  "description": "Common bundle based on silex for my projects",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Stanislav Vetlovskiy",
+      "email": "mrerliz@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3",
+    "silex/silex": "~1.3",
+    "symfony/yaml": "~2.7",
+    "twig/twig": "~1.18",
+    "monolog/monolog": "~1.15",
+    "dflydev/doctrine-orm-service-provider": "~1.0",
+    "doctrine/data-fixtures": "~1.0"
+  }
+}
