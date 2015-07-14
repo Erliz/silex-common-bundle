@@ -1,8 +1,6 @@
 {
   "name": "erliz/silex-common-bundle",
   "description": "Common bundle based on silex for my projects",
-  "minimum-stability": "stable",
-  "license": "proprietary",
   "authors": [
     {
       "name": "Stanislav Vetlovskiy",
