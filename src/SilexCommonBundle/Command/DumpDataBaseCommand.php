@@ -68,4 +68,4 @@ EOF
             new InputArgument('to', InputArgument::REQUIRED, 'directory or file where the fixtures should be dumped'),
         );
     }
-} 
+}

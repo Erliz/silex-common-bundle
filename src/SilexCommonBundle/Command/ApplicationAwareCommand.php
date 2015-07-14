@@ -42,4 +42,4 @@ abstract class ApplicationAwareCommand extends Command
     {
         return $this->getProjectApplication()['logger'];
     }
-} 
+}
