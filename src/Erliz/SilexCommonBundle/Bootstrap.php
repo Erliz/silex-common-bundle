@@ -30,11 +30,11 @@ class Bootstrap implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $app->register(new ServiceControllerServiceProvider());
-        $this->setControllers($app);
+//        $this->setControllers($app);
         $controllersFactory = $this->getControllersFactory($app);
 
         $this->addSettings($app);
-        $this->addServices($app);
+//        $this->addServices($app);
         $this->addExtensions($app);
 
         return  $controllersFactory;
@@ -67,9 +67,10 @@ class Bootstrap implements ControllerProviderInterface
      */
     private function addSettings(Application $app)
     {
-        $app->before(function (Request $request, Application $app) {
-
-        }, Application::EARLY_EVENT);
+        $app['twig.loader.filesystem']->addPath(
+            __DIR__ . '/Resources/views',
+            'Common'
+        );
     }
 
     /**
@@ -77,12 +78,7 @@ class Bootstrap implements ControllerProviderInterface
      */
     private function addExtensions(Application $app)
     {
-        $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
-            /** @var $twig \Twig_Environment */
-            $twig->addExtension(new AssetsExtension($app));
-
-            return $twig;
-        }));
+        $app['twig']->addExtension(new AssetsExtension($app));
     }
 
     /**

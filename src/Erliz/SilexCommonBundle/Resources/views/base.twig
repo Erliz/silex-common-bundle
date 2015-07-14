@@ -1,4 +1,12 @@
 {% set staticVersion = '?v=1' %}
+{% if general is not defined %}
+    {% set general = {
+        title: '',
+        description: '',
+        keywords: '',
+        title: ''
+    } %}
+{% endif %}
 <!doctype html>
 <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" >
 <head>
@@ -60,7 +68,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 {% endblock %}
 {% block counters %}
-    {% include 'counter/google.twig' with {account: ''} only %}
+    {% include '@Common/counter/google.twig' with {account: ''} only %}
     {#{% include 'counter/yandex.twig' with {account: ''} only %}#}
     {#{% include 'counter/mail.twig' with {account: ''} only %}#}
 {% endblock %}
