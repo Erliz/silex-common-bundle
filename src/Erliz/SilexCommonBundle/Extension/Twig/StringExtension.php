@@ -28,7 +28,7 @@ class StringExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction('pluralize', array($this, 'pluralize')),
+            new Twig_SimpleFunction('pluralize', array($this, 'pluralize'))
         );
     }
 
@@ -38,7 +38,7 @@ class StringExtension extends Twig_Extension
     public function getFilters()
     {
         return array(
-            new Twig_SimpleFilter('month_to_string', array($this, 'monthToString')),
+            new Twig_SimpleFilter('month_to_string', array($this, 'monthToString'))
         );
     }
 
