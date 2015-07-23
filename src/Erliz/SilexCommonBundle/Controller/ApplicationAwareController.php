@@ -33,7 +33,7 @@ class ApplicationAwareController
      */
     protected function getEntityManager()
     {
-        return $this->app['orm.em'];
+        return $this->app['orm.ems'][$this->app['region.skyforge.service']->getDbConnectionNameByRegion()];
     }
 
     protected function renderView($templatePath, array $variables = array())
